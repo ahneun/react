@@ -1,24 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
-import Navigation from 'components/Navigation';
-import Form from 'components/form';
+import Form from 'components/Form'
+import { useState } from 'react';
+import Fanletter from 'components/Fanletter';
+
 
 const Container = styled.div`
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 `;
 
-function home({heroesClearS, addForms}) {
+function Home() {
+  const [heroes, setHeroes] = useState("IronMan");
   return (
     <Container>
-          <Header/>
-          <Navigation heroesClear={heroesClearS}/>
-          <Form addForm={addForms}/>
+          <Header heroes={heroes} setHeroes={setHeroes}/>
+          <Form />
+          <Fanletter heroes={heroes}/>
     </Container>
   )
 }
 
-export default home
+export default Home
